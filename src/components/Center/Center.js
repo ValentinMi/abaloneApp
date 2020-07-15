@@ -1,16 +1,11 @@
 import React from "react";
+import { Box } from "@chakra-ui/core";
 
 const Center = ({ children }) => {
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
+    <Box d="flex" justifyContent="center" alignItems="item">
       {children}
-    </div>
+    </Box>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { createContext, useReducer } from "react";
-import * as userEvents from "../constants/userEvents";
+import * as events from "../constants/events";
 import { eventHandler } from "./eventHandler";
 import socketIOClient from "socket.io-client";
 import { useEffect } from "react";
@@ -11,8 +11,9 @@ export const WebSocketContext = createContext(null);
 // Initial state
 const initialState = {
   socket: null,
+  players: [],
+  games: [],
   playerName: null,
-  player2Name: null,
   room_id: null,
   boardData: null
 };
@@ -24,8 +25,9 @@ export const WebSocketProvider = ({ children }) => {
   const connect = useCallback(() => {
     const socket = socketIOClient(ENDPOINT);
 
+    // Set Socket
     dispatch({
-      type: "set_socket",
+      type: events.SET_SOCKET,
       payload: { socket }
     });
 
@@ -59,12 +61,16 @@ function reducer(state, action) {
   const { type, payload } = action;
 
   switch (type) {
-    case "set_socket":
-      return { socket: payload.socket };
+    case events.SET_SOCKET:
+      return { ...state, socket: payload.socket };
 
-    case userEvents.CONNECT:
-      console.log(payload.name);
-      return { playerName: payload.name };
+    case events.CONNECT:
+      return { ...state, playerName: payload.name };
+
+    case events.LOBBY_INFOS: {
+      console.log(payload);
+      return { ...state, players: payload.players, games: payload.games };
+    }
 
     default:
       return state;

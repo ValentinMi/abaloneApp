@@ -1,4 +1,4 @@
-import * as userEvents from "../constants/userEvents";
+import * as events from "../constants/events";
 
 /**
  * @param {SocketIOClient.Socket} socket
@@ -6,8 +6,14 @@ import * as userEvents from "../constants/userEvents";
  */
 
 export const eventHandler = (socket, name, dispatch) => {
-  console.log("toto", name);
+  // Send player name
+  socket.emit(events.USER_CHOOSE_NAME, name);
 
-  socket.emit(userEvents.USER_CHOOSE_NAME, name);
-  socket.on("fromServer", msg => console.log(msg));
+  // Receive lobby infos
+  socket.on(events.LOBBY_INFOS, infos => {
+    dispatch({
+      type: events.LOBBY_INFOS,
+      payload: infos
+    });
+  });
 };

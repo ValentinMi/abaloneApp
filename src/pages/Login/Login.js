@@ -1,60 +1,67 @@
 import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { WebSocketContext } from "../../websocket/WebSocket.context";
-import * as userEvents from "../../constants/userEvents";
+import * as events from "../../constants/events";
 import Center from "../../components/Center/Center";
+
+import {
+  Box,
+  Text,
+  FormControl,
+  FormLabel,
+  Input,
+  Button
+} from "@chakra-ui/core";
 
 const Login = () => {
   const { dispatch } = useContext(WebSocketContext);
+  const history = useHistory();
 
-  const [formStep, setFormStep] = useState(1);
-
-  const [form, setForm] = useState({ nickName: "", room_id: "" });
-
-  const handleSubmit = e => {
-    e.preventDefault();
-  };
+  const [form, setForm] = useState({ nickName: "" });
 
   const handleChange = e => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm({ ...form, [e.target.id]: e.target.value });
   };
 
-  const handleConnect = () => {
-    setFormStep(2);
+  const handleConnect = e => {
+    e.preventDefault();
+
     dispatch({
-      type: userEvents.CONNECT,
+      type: events.CONNECT,
       payload: { name: form.nickName }
     });
+
+    history.push("/main");
   };
 
   return (
-    <Center>
-      <form onSubmit={e => handleSubmit(e)}>
-        {formStep === 1 ? (
-          <>
-            <input
+    <Box
+      width="100%"
+      height="50vh"
+      d="flex"
+      flexDirection="column"
+      justifyContent="space-between"
+      alignItems="center"
+    >
+      <Text fontSize="6xl">Abalone</Text>
+      <Box shadow="md" borderWidth="1px" p={3}>
+        <form onSubmit={e => handleConnect(e)}>
+          <FormControl isRequired>
+            <FormLabel htmlFor="email">Choose a nickname</FormLabel>
+            <Input
               type="text"
-              name="nickName"
-              placeholder="Choose your nickname"
+              id="nickName"
+              onChange={handleChange}
               value={form.nickName}
-              onChange={handleChange}
+              width=""
             />
-            <button onClick={handleConnect}>Connect</button>
-          </>
-        ) : (
-          <>
-            <h1>Hello {form.nickName}</h1>
-            <input
-              type="text"
-              name="room_id"
-              placeholder="Enter room id"
-              value={form.room_id}
-              onChange={handleChange}
-            />
-            <button type="submit">Join room</button>
-          </>
-        )}
-      </form>
-    </Center>
+          </FormControl>
+          <Button mt={4} variantColor="teal" type="submit">
+            Connect
+          </Button>
+        </form>
+      </Box>
+    </Box>
   );
 };
 

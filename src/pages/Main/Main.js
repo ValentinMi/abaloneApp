@@ -1,12 +1,16 @@
 import React, { useContext } from "react";
 import { WebSocketContext } from "../../websocket/WebSocket.context";
+import { Box } from "@chakra-ui/core";
+import PlayersList from "../../components/PlayersList/PlayersList";
 
 const Main = () => {
-  const { ws } = useContext(WebSocketContext);
+  const { players, games, playerName } = useContext(WebSocketContext);
 
-  console.log("ws", ws);
-
-  return <h1>Main</h1>;
+  return (
+    <Box height="100vh" width="100%" d="flex" justifyContent="space-between">
+      <PlayersList />
+    </Box>
+  );
 };
 
 export default Main;
