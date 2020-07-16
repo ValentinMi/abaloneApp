@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { Box } from "@chakra-ui/core";
 import { WebSocketContext } from "../../websocket/WebSocket.context";
-import Player from "../Player/Player";
+import { Box } from "@chakra-ui/core";
+import Game from "../Game/Game";
 
-const PlayersList = () => {
-  const { players } = useContext(WebSocketContext);
+const GamesList = () => {
+  const { games } = useContext(WebSocketContext);
 
   return (
     <Box
@@ -15,11 +15,11 @@ const PlayersList = () => {
       bg="teal.700"
       overflow="auto"
     >
-      {players.map((player, i) => (
-        <Player key={player.name + i} {...player} />
+      {games.map((game) => (
+        <Game playersNbr={game.playersNbr} />
       ))}
     </Box>
   );
 };
 
-export default PlayersList;
+export default GamesList;

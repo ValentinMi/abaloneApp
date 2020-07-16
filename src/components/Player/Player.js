@@ -9,7 +9,7 @@ const Player = ({ name, isPlaying, game_id }) => {
         name="player avatar"
         src={`https://api.adorable.io/avatars/285/${name}.png`}
       />
-      <Text>{name}</Text>
+      <Text color="white">{name}</Text>
       <Box
         height="10px"
         width="10px"
