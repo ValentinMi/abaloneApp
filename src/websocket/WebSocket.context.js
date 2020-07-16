@@ -1,9 +1,14 @@
-import React, { createContext, useReducer } from "react";
+import React, {
+  createContext,
+  useReducer,
+  useEffect,
+  useCallback
+} from "react";
 import * as events from "../constants/events";
 import { eventHandler } from "./eventHandler";
 import socketIOClient from "socket.io-client";
-import { useEffect } from "react";
-import { useCallback } from "react";
+import { useToast } from "@chakra-ui/core";
+
 const ENDPOINT = "http://127.0.0.1:8000";
 
 export const WebSocketContext = createContext(null);
@@ -14,13 +19,16 @@ const initialState = {
   players: [],
   games: [],
   playerName: null,
-  room_id: null,
-  boardData: null
+  player: null,
+  currentGame: null,
+  boardData: null,
+  error: null
 };
 
 // We wrap provider in a component to add logic in
 export const WebSocketProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const toast = useToast();
 
   const connect = useCallback(() => {
     const socket = socketIOClient(ENDPOINT);
@@ -43,11 +51,17 @@ export const WebSocketProvider = ({ children }) => {
     }
   }, [state.playerName, connect]);
 
-  // Join room
+  // On error change
   useEffect(() => {
-    if (state.room_id) {
+    if (state.error) {
+      toast({
+        title: "Error",
+        description: state.error,
+        status: "error",
+        duration: 7000
+      });
     }
-  });
+  }, [state.error, toast]);
 
   return (
     <WebSocketContext.Provider value={{ ...state, dispatch }}>
@@ -67,9 +81,27 @@ function reducer(state, action) {
     case events.CONNECT:
       return { ...state, playerName: payload.name };
 
-    case events.LOBBY_INFOS: {
-      console.log(payload);
-      return { ...state, players: payload.players, games: payload.games };
+    case events.LOBBY_INFOS:
+      if (payload.player)
+        return {
+          ...state,
+          players: payload.players,
+          player: payload.player,
+          games: payload.games
+        };
+      return {
+        ...state,
+        players: payload.players,
+        games: payload.games
+      };
+
+    case events.GET_ERROR:
+      return { ...state, error: payload.error };
+
+    case events.CREATE_GAME: {
+      console.log(state.player);
+      state.socket.emit(events.CREATE_GAME, state.player);
+      return { ...state };
     }
 
     default:

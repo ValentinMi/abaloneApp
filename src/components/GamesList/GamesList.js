@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { WebSocketContext } from "../../websocket/WebSocket.context";
 import { Box } from "@chakra-ui/core";
 import Game from "../Game/Game";
+import GamesListForm from "./GamesListForm/GamesListForm";
 
 const GamesList = () => {
   const { games } = useContext(WebSocketContext);
@@ -15,8 +16,9 @@ const GamesList = () => {
       bg="teal.700"
       overflow="auto"
     >
-      {games.map((game) => (
-        <Game playersNbr={game.playersNbr} />
+      <GamesListForm />
+      {games.map(game => (
+        <Game key={game._id} game={game} />
       ))}
     </Box>
   );
