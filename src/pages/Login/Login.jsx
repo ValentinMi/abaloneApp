@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { WebSocketContext } from "../../websocket/WebSocket.context";
 import * as events from "../../constants/events";
-import Center from "../../components/Center/Center";
 
 import {
   Box,

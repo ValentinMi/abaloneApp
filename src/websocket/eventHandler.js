@@ -11,18 +11,25 @@ export const eventHandler = (socket, name, dispatch) => {
 
   // On receive lobby infos
   socket.on(events.LOBBY_INFOS, infos => {
-    console.log("infos", infos);
     dispatch({
       type: events.LOBBY_INFOS,
       payload: infos
     });
+  });
 
-    // On receive error
-    socket.on(events.GET_ERROR, error => {
-      dispatch({
-        type: events.GET_ERROR,
-        payload: { error }
-      });
+  // On receive game creation confirmation
+  socket.on(events.GAME_CREATED, game_id => {
+    dispatch({
+      type: events.GAME_CREATED,
+      payload: { game_id }
+    });
+  });
+
+  // On receive error
+  socket.on(events.GET_ERROR, error => {
+    dispatch({
+      type: events.GET_ERROR,
+      payload: { error }
     });
   });
 };

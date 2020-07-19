@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { WebSocketContext } from "../../websocket/WebSocket.context";
 import { Box } from "@chakra-ui/core";
-import Game from "../Game/Game";
+import GameCard from "../GameCard/GameCard";
 import GamesListForm from "./GamesListForm/GamesListForm";
 
 const GamesList = () => {
@@ -18,7 +18,7 @@ const GamesList = () => {
     >
       <GamesListForm />
       {games.map(game => (
-        <Game key={game._id} game={game} />
+        <GameCard key={game._id} game={game} />
       ))}
     </Box>
   );

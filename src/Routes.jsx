@@ -9,8 +9,9 @@ const Routes = () => {
 
   return (
     <Switch>
-      <Route exact path="/" component={Login} />
-      {playerName && <Route exact path="/main" component={Main} />}
+      {/* <Route exact path="/" component={Login} />
+      {playerName && <Route exact path="/main" component={Main} />} */}
+      <Route exact path="/" component={Main} />
       <Redirect to="/" />
     </Switch>
   );

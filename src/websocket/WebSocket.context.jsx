@@ -63,6 +63,15 @@ export const WebSocketProvider = ({ children }) => {
     }
   }, [state.error, toast]);
 
+  // Disconnect on unmouting
+  useEffect(() => {
+    return () => {
+      dispatch({
+        type: events.USER_DISCONNECT
+      });
+    };
+  }, []);
+
   return (
     <WebSocketContext.Provider value={{ ...state, dispatch }}>
       {children}
@@ -72,7 +81,9 @@ export const WebSocketProvider = ({ children }) => {
 
 // Our reducer to manage state and events
 function reducer(state, action) {
+  // Desctructure
   const { type, payload } = action;
+  const { socket } = state;
 
   switch (type) {
     case events.SET_SOCKET:
@@ -81,7 +92,12 @@ function reducer(state, action) {
     case events.CONNECT:
       return { ...state, playerName: payload.name };
 
+    case events.USER_DISCONNECT:
+      socket.emit(events.USER_DISCONNECT, state.player);
+      return { ...state };
+
     case events.LOBBY_INFOS:
+      console.log(payload);
       if (payload.player)
         return {
           ...state,
@@ -95,16 +111,29 @@ function reducer(state, action) {
         games: payload.games
       };
 
+    case events.CREATE_GAME:
+      socket.emit(events.CREATE_GAME, state.player);
+      return { ...state };
+
+    case events.GAME_CREATED:
+      socket.emit(events.USER_JOIN_GAME, {
+        player: state.player,
+        game_id: payload.game_id
+      });
+      return { ...state, currentGame: payload.game_id };
+
+    case events.USER_JOIN_GAME:
+      socket.emit(events.USER_JOIN_GAME, {
+        player: state.player,
+        game_id: payload.game_id
+      });
+      return { ...state, currentGame: payload.game_id };
+
     case events.GET_ERROR:
       return { ...state, error: payload.error };
 
-    case events.CREATE_GAME: {
-      console.log(state.player);
-      state.socket.emit(events.CREATE_GAME, state.player);
-      return { ...state };
-    }
-
     default:
+      console.log("Unknown event");
       return state;
   }
 }

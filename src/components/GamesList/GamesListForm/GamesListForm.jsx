@@ -7,7 +7,7 @@ const GamesListForm = () => {
   const { dispatch } = useContext(WebSocketContext);
 
   const [inputIsVisible, setInputIsVisible] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+  const [, setInputValue] = useState("");
 
   const handleChange = e => {
     setInputValue(e.target.value);
