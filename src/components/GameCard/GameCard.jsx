@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Box, Text, Button } from "@chakra-ui/core";
-import { WebSocketContext } from "../../websocket/WebSocket.context";
+import { WebSocketContext } from "../../contexts/WebSocket.context";
 import * as events from "../../constants/events";
 
 const GameCard = ({ game }) => {

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Avatar, Box } from "@chakra-ui/core";
 import { Text } from "@chakra-ui/core";
-import { WebSocketContext } from "../../websocket/WebSocket.context";
+import { WebSocketContext } from "../../contexts/WebSocket.context";
 
 const Player = ({ name, isPlaying, game_id }) => {
   const { player } = useContext(WebSocketContext);

@@ -1,0 +1,197 @@
+{
+  "rowA": [
+    {
+      "pos": "a:1",
+      "isSelectionnable": false,
+      "ball": { "color": "white", "player": null }
+    },
+    {
+      "pos": "a:2",
+      "isSelectionnable": false,
+      "ball": { "color": "white", "player": null }
+    },
+    {
+      "pos": "a:3",
+      "isSelectionnable": false,
+      "ball": { "color": "white", "player": null }
+    },
+    {
+      "pos": "a:4",
+      "isSelectionnable": false,
+      "ball": { "color": "white", "player": null }
+    },
+    {
+      "pos": "a:5",
+      "isSelectionnable": false,
+      "ball": { "color": "white", "player": null }
+    }
+  ],
+  "rowB": [
+    {
+      "pos": "b:1",
+      "isSelectionnable": false,
+      "ball": { "color": "white", "player": null }
+    },
+    {
+      "pos": "b:2",
+      "isSelectionnable": false,
+      "ball": { "color": "white", "player": null }
+    },
+    {
+      "pos": "b:3",
+      "isSelectionnable": false,
+      "ball": { "color": "white", "player": null }
+    },
+    {
+      "pos": "b:4",
+      "isSelectionnable": false,
+      "ball": { "color": "white", "player": null }
+    },
+    {
+      "pos": "b:5",
+      "isSelectionnable": false,
+      "ball": { "color": "white", "player": null }
+    },
+    {
+      "pos": "b:6",
+      "isSelectionnable": false,
+      "ball": { "color": "white", "player": null }
+    }
+  ],
+  "rowC": [
+    { "pos": "c:1", "isSelectionnable": false, "ball": null },
+    { "pos": "c:2", "isSelectionnable": false, "ball": null },
+    {
+      "pos": "c:3",
+      "isSelectionnable": false,
+      "ball": { "color": "white", "player": null }
+    },
+    {
+      "pos": "c:4",
+      "isSelectionnable": false,
+      "ball": { "color": "white", "player": null }
+    },
+    {
+      "pos": "c:5",
+      "isSelectionnable": false,
+      "ball": { "color": "white", "player": null }
+    },
+    { "pos": "c:6", "isSelectionnable": false, "ball": null },
+    { "pos": "c:7", "isSelectionnable": false, "ball": null }
+  ],
+  "rowD": [
+    { "pos": "d:1", "isSelectionnable": false, "ball": null },
+    { "pos": "d:2", "isSelectionnable": false, "ball": null },
+    { "pos": "d:3", "isSelectionnable": false, "ball": null },
+    { "pos": "d:4", "isSelectionnable": false, "ball": null },
+    { "pos": "d:5", "isSelectionnable": false, "ball": null },
+    { "pos": "d:6", "isSelectionnable": false, "ball": null },
+    { "pos": "d:7", "isSelectionnable": false, "ball": null },
+    { "pos": "d:8", "isSelectionnable": false, "ball": null }
+  ],
+  "rowE": [
+    { "pos": "e:1", "isSelectionnable": false, "ball": null },
+    { "pos": "e:2", "isSelectionnable": false, "ball": null },
+    { "pos": "e:3", "isSelectionnable": false, "ball": null },
+    { "pos": "e:4", "isSelectionnable": false, "ball": null },
+    {
+      "pos": "e:5",
+      "isSelectionnable": true,
+      "ball": { "color": "white", "player": null }
+    },
+    { "pos": "e:6", "isSelectionnable": false, "ball": null },
+    { "pos": "e:7", "isSelectionnable": false, "ball": null },
+    { "pos": "e:8", "isSelectionnable": false, "ball": null },
+    { "pos": "e:9", "isSelectionnable": false, "ball": null }
+  ],
+  "rowF": [
+    { "pos": "f:2", "isSelectionnable": false, "ball": null },
+    { "pos": "f:3", "isSelectionnable": false, "ball": null },
+    { "pos": "f:4", "isSelectionnable": false, "ball": null },
+    { "pos": "f:5", "isSelectionnable": false, "ball": null },
+    { "pos": "f:6", "isSelectionnable": false, "ball": null },
+    { "pos": "f:7", "isSelectionnable": false, "ball": null },
+    { "pos": "f:8", "isSelectionnable": false, "ball": null },
+    { "pos": "f:9", "isSelectionnable": false, "ball": null }
+  ],
+  "rowG": [
+    { "pos": "g:3", "isSelectionnable": false, "ball": null },
+    { "pos": "g:4", "isSelectionnable": false, "ball": null },
+    {
+      "pos": "g:5",
+      "isSelectionnable": false,
+      "ball": { "color": "black", "player": null }
+    },
+    {
+      "pos": "g:6",
+      "isSelectionnable": false,
+      "ball": { "color": "black", "player": null }
+    },
+    {
+      "pos": "g:7",
+      "isSelectionnable": false,
+      "ball": { "color": "black", "player": null }
+    },
+    { "pos": "g:8", "isSelectionnable": false, "ball": null },
+    { "pos": "g:9", "isSelectionnable": false, "ball": null }
+  ],
+  "rowH": [
+    {
+      "pos": "h:4",
+      "isSelectionnable": false,
+      "ball": { "color": "black", "player": null }
+    },
+    {
+      "pos": "h:5",
+      "isSelectionnable": false,
+      "ball": { "color": "black", "player": null }
+    },
+    {
+      "pos": "h:6",
+      "isSelectionnable": false,
+      "ball": { "color": "black", "player": null }
+    },
+    {
+      "pos": "h:7",
+      "isSelectionnable": false,
+      "ball": { "color": "black", "player": null }
+    },
+    {
+      "pos": "h:8",
+      "isSelectionnable": false,
+      "ball": { "color": "black", "player": null }
+    },
+    {
+      "pos": "h:9",
+      "isSelectionnable": false,
+      "ball": { "color": "black", "player": null }
+    }
+  ],
+  "rowI": [
+    {
+      "pos": "i:5",
+      "isSelectionnable": false,
+      "ball": { "color": "black", "player": null }
+    },
+    {
+      "pos": "i:6",
+      "isSelectionnable": false,
+      "ball": { "color": "black", "player": null }
+    },
+    {
+      "pos": "i:7",
+      "isSelectionnable": false,
+      "ball": { "color": "black", "player": null }
+    },
+    {
+      "pos": "i:8",
+      "isSelectionnable": false,
+      "ball": { "color": "black", "player": null }
+    },
+    {
+      "pos": "i:9",
+      "isSelectionnable": false,
+      "ball": { "color": "black", "player": null }
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import React, {
   useCallback
 } from "react";
 import * as events from "../constants/events";
-import { eventHandler } from "./eventHandler";
+import { eventHandler } from "../websocket/eventHandler";
 import socketIOClient from "socket.io-client";
 import { useToast } from "@chakra-ui/core";
 
@@ -21,7 +21,6 @@ const initialState = {
   playerName: null,
   player: null,
   currentGame: null,
-  boardData: null,
   error: null
 };
 

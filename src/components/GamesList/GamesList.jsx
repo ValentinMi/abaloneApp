@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { WebSocketContext } from "../../websocket/WebSocket.context";
+import { WebSocketContext } from "../../contexts/WebSocket.context";
 import { Box } from "@chakra-ui/core";
 import GameCard from "../GameCard/GameCard";
 import GamesListForm from "./GamesListForm/GamesListForm";

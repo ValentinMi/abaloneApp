@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Box, Button, FormControl, Input } from "@chakra-ui/core";
-import { WebSocketContext } from "../../../websocket/WebSocket.context";
+import { WebSocketContext } from "../../../contexts/WebSocket.context";
 import * as events from "../../../constants/events";
 
 const GamesListForm = () => {

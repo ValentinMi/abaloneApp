@@ -1,18 +1,11 @@
-import React, { useState, useCallback, useEffect } from "react";
-import boardJSON from "./gameBoard.json";
+import React, { useState, useCallback, useEffect, useContext } from "react";
 import { Box } from "@chakra-ui/core";
 import Cell from "./Cell/Cell";
+import { GameContext } from "../../contexts/Game.context";
 
 const Game = () => {
-  const [board, setBoard] = useState(boardJSON);
-
-  const treatBoard = useCallback(() => {
-    console.log(boardJSON);
-  }, []);
-
-  useEffect(() => {
-    treatBoard();
-  }, [treatBoard]);
+  const { board } = useContext(GameContext);
+  console.log(board);
 
   return (
     <Box
